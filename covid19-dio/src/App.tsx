@@ -56,9 +56,7 @@ function App() {
             <p>Carregando...</p>
           </div>
         )}
-        <C.Section>
-          <WorldsValues world={world} />
-        </C.Section>
+        <WorldsValues world={world} />
         <div className="input">
           <input
             type="search"

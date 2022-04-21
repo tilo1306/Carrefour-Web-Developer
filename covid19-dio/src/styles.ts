@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
   width: 100%;
   text-align: center;
-  margin: 25px;
+  margin: 0 auto;
   padding: 25px;
   .input {
     width: 100%;
@@ -18,33 +18,7 @@ export const Header = styled.h1`
   color: red;
   text-align: center;
 `;
-export const Section = styled.section`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
 
-  div {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: auto;
-    height: auto;
-    padding: 20px;
-    border: 1px solid black;
-  }
-  .Cases {
-    background: aquamarine;
-    margin: 20px;
-  }
-  .Deaths {
-    background: red;
-    margin: 20px;
-  }
-  .Recovered {
-    background: green;
-    margin: 20px;
-  }
-`;
 export const SectionCountries = styled.section`
   display: flex;
   flex-wrap: wrap;
