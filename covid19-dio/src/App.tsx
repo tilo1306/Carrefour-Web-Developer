@@ -5,9 +5,12 @@ import * as C from "./styles";
 import ReactPaginate from "react-paginate";
 import {WorldsValues} from "./componets/WorldValue";
 import {ListCountries} from "./componets/ListCountries";
+import {World} from "./types/World";
 
 function App() {
   const [loading, setLoading] = useState(false);
+  const [world, setWorld] = useState<World | undefined>();
+
   const [listCountries, setListCountries] = useState<Countries[]>([]);
   const [searchValue, setSearchValue] = useState("");
   const [pageNumber, setPageNumber] = useState<number>(0);
@@ -15,9 +18,11 @@ function App() {
   useEffect(() => {
     const loadApiCovid = async () => {
       setLoading(true);
-      const countryJson = (await api.getCovidCountry()) as Countries[];
+      const worldJson = await api.getAllCovid();
+      const countryJson = await api.getCovidCountry();
       setLoading(false);
       setListCountries(countryJson);
+      setWorld(worldJson);
     };
     loadApiCovid();
   }, []);
@@ -52,7 +57,7 @@ function App() {
           </div>
         )}
         <C.Section>
-          <WorldsValues />
+          <WorldsValues world={world} />
         </C.Section>
         <div className="input">
           <input
